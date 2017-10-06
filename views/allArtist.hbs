@@ -15,11 +15,13 @@
 <div class="container" style="padding-top: 100px;" >
 {{#each data}}
 
-    <div class="jumbotron" style="background:transparent !important">
+    <div class="jumbotron" style="background:transparent !important;padding:1rem;">
         <div class="row" >
             <div class="col-3"><a href="/artist/{{username}}"><img src="/userImages/{{profile_image}}" class="img-fluid"></img></a></div>
-            <span style="color:black;">{{name}}</span>
-            <div class="row" style="font-size:1.4em;">{{bio}}</div>
+            <div class="col-9">
+               <div class="row" style="font-size:1.4em;">{{name}}</div>
+               <div class="row">{{bio}}</div>
+             </div>
 
         </div>
         </a>
