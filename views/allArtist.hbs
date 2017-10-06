@@ -14,13 +14,11 @@
 {{/if}}
 <div class="container" style="padding-top: 100px;" >
 {{#each data}}
-    <div class="jumbotron">
-        <a href="/artist:{{username}}">
-
-        <div class="row">
-            <div class="col-3"><img src="/userImages/{{profile_image}}" class="img-fluid"></div>
-            {{name}}
-
+    <div class="jumbotron" style="background:transparent !important">
+        <div class="row" >
+            <div class="col-3"><a href="/artist:{{username}}"><img src="/userImages/{{profile_image}}" class="img-fluid"></img></a></div>
+            <span style="color:black;">{{name}}</span>
+            <div class="row" style="font-size:1.4em;">{{bio}}</div>
         </div>
         </a>
     </div>
