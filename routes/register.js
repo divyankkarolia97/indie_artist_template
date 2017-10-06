@@ -71,7 +71,7 @@ router.post('/',function(req,res,next){
     })
 
 
-},passport.authenticate('local',{successRedirect:'/artist',failureRedirect:'/login'}))
+},passport.authenticate('local',{successRedirect:'/artist/success',failureRedirect:'/login'}))
 
 
 router.post('/usernameAvailable',function(req,res){
