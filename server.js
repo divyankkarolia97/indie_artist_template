@@ -37,6 +37,7 @@ hbs.registerPartials(__dirname+'/views/partials')
 //path handlers
 app.use('/',express.static(process.env.PWD+'/static'))
 app.use('/userImages',express.static(process.env.PWD+'/userImages'))
+app.use('/eventImages',express.static(process.env.PWD+'/eventImages'))
 
 
 

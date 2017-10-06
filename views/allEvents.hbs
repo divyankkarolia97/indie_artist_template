@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discover Events</title>
+    {{> head}}
+</head>
+<body style="font-family: 'Oswald', sans-serif;">
+
+{{#if logged}}
+    {{> profileHead}}
+{{else}}
+    {{> header}}
+{{/if}}
+<div class="container" style="padding-top: 100px;" >
+{{#each data}}
+    <div class="col-6">
+      <div class="jumbotron" style="background:transparent !important">
+          <div class="row">
+              <div class="col-3"><img src="/eventImages/{{event_img}}" alt="img1" class="img-fluid"></div>
+              <div class="col-9">
+                 <div class="row" style="font-size:1.4em;">{{name}}</div>
+                 <div class="row">{{desc}}</div>
+                 <div class="row" style="color:grey;">{{venue}}</div>
+                 <div class="row" style="margin-top:1rem;">
+                   {{#each categories}}
+                    <button type="button" class="btn btn-default"><span class="badge" style="color:grey;">{{this}}</span></button>
+                    &nbsp;&nbsp;&nbsp;
+                   {{/each}}
+                 </div>
+                 <div class="row" style="position:absolute; bottom:0">
+                   <div class="col-9">
+                     <div class="row">{{date}}</div>
+                     <div class="row">{{time}}</div>
+                   </div>
+                  <div class="col-3">
+                    <div class="row" >
+                      <button style="float:right;" class="btn btn-success"><span style="font-size:.8em;">BUY NOW</span> <i class="fa fa-inr" aria-hidden="true"></i>{{price}}</button>
+                    </div>
+                  </div>
+                 </div>
+               </div>
+          </div>
+      </div>
+    </div>
+{{/each}}
+</div>
+</body>
+</html>
