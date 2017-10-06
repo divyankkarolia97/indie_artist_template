@@ -10,7 +10,6 @@ const passport = require('../routes/localStrategy');
 const session = require('express-session');
 
 //passport configuration
-
 router.use(cp('TheSecret'));
 router.use(session({
     secret:'TheSecret',
