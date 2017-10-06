@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>bolnabhai AboutUs</title>
+    {{> head}}
 </head>
-<body>
+<body style="font-family: 'Oswald', sans-serif;">
+{{#if logged}}
+    {{> profileHead}}
+{{else}}
+    {{> header}}
+{{/if}}
+<br><br><br>
 This is the artist profile page.
 <br>
 {{data.username}}
