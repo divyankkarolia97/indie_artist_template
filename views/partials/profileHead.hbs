@@ -1,0 +1,39 @@
+<div class="container-fluid bg-dark"  style="position:fixed;z-index:9;">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+
+    <a  class=" navbar-brand" href="/" style="padding: 0px;font-family: 'Just Another Hand', cursive;font-size: 35px;" ><i class="fa fa-commenting" aria-hidden="true"></i> INdiE ARTIST</a>
+    <button class="navbar-toggler" id="toggleButton" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse"  id="navbarNavAltMarkup" style="position: absolute;right: 0px" >
+        <div class="navbar-nav"  >
+            <a class="nav-item nav-link active" href="/artist">Profile</a>
+            <span style="cursor:pointer" class="nav-item nav-link active" id="logout">Log Out</span>
+            <a class="nav-item nav-link active" href="/aboutus">About Us</a>
+
+        </div>
+    </div>
+
+</nav>
+</div>
+</div>
+<script>
+
+    document.getElementById('toggleButton').onclick = function(){
+        document.getElementById('navbarNavAltMarkup').style.setProperty('position','');
+        document.getElementById('navbarNavAltMarkup').style.setProperty('right','');
+    }
+    $(function(){
+
+        $('#logout').click(function(){
+            $.post('/logout',function(){
+                console.log(window.location);
+                window.location = '/';
+            });
+        })
+
+    })
+
+
+</script>

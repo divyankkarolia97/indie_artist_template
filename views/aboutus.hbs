@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bolnabhai AboutUs</title>
+    {{> head}}
+</head>
+<body style="font-family: 'Oswald', sans-serif;">
+    {{#if logged}}
+        {{> profileHead}}
+    {{else}}
+        {{> header}}
+    {{/if}}
+
+    <div style="position: relative; top: 135px;" class="container">
+        <div style="font-weight: bolder;font-size: larger">About Us</div>
+        <div style="font-size: 14px;"></div>
+        <hr>
+        <span style="font-weight: bolder">developed by:</span>
+
+        <ul style="list-style: none">
+
+            <li style="font-size: 14px;">MOHIT CHATTLANI<a href="https://github.com/MohitChattlani">(Git Hub)</a></li>
+            <li style="font-size: 14px;">HARSHIT BISHT<a href="https://github.com/harshitbisht96">(Git Hub)</a></li>
+            <li style="font-size: 14px;">DIVYANK KAROLIA <a href="https://github.com/divyankkarolia97">(Git Hub)</a></li>
+
+            <li style="font-size: 14px;">find the repo at <a href="https://github.com/divyankkarolia97/indie_artist">indie_artist</a></li>
+            <li style="font-size: 14px;">feel free to drop a mail at <code>indieartistapp@gmail.com</code></li>
+
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bolnabhai</title>
+    {{> head}}
+</head>
+<body style="font-family: 'Oswald', sans-serif;">
+    {{> profileHead}}
+
+    <!---->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script>window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+    <!---->
+    <div class="jumbotron" style="padding-top: 135px;">
+        <div class="container">
+
+           <div class="row">
+               <div class="col-6-md" style="margin-right:20px; ">
+                   <img class="img-fluid img-thumbnail" src="{{path}}" style="height: 150px">
+               </div>
+               <div class="col-6-md">
+                   hello,<h1 style="font-weight: bolder">{{name}}</h1> <h4>({{username}})</h4>
+                   <a href="/user" style="color: black"><span>Messages: </span><span style="font-weight: bolder; font-size: 30px;" id="totalMessages">{{totalMessages}}</span></a>
+                    <br><br>
+                   <div style="font-size:12px;">Share your feedback Link:</div>
+                   <br>
+                   <a style="color:red" target="_blank" href="http://bolnabhai.herokuapp.com/feedback{{username}}"><code>http://bolnabhai.herokuapp.com/feedback{{username}}</code></a>
+
+                    <br>
+                    <br>
+
+                   <div class="fb-share-button" data-href="http://bolnabhai.herokuapp.com/feedback{{username}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbolnabhai.herokuapp.com   %2F&amp;src=sdkpreparse">Share</a></div>
+                   <br><br>
+                   <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Anonymously%20feedback%20me%20at%20&url=http%3A%2F%2Fbolnabhai.herokuapp.com%2Ffeedback{{username}}" data-size="large">Tweet</a>
+
+               </div>
+           </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 style="font-family: 'Oswald', sans-serif;">Your Messages:</h1><hr>
+        {{#each feedbacks}}
+        <div class="alert alert-dark" id="feedback{{dataValues.id}}">
+        <div class="row">
+            <div class="col-11">
+        <p style="font-family: 'Oswald', sans-serif; margin-bottom: 0px" ">{{dataValues.feedback}}</p>
+            </div>
+                <div class="col-1">
+            <span class="btn btn-sm btn-outline-danger" style="padding: 2px 4px;" onclick="deleteMessage(event)"><i  feedbackId="{{dataValues.id}}"  class="fa fa-times" aria-hidden="true"></i></span>
+        </div>
+        </div>
+        </div>
+    {{/each}}
+
+    </div>
+
+
+    <script>
+
+        function deleteMessage(event){
+            event.target.parentNode.parentNode.parentNode.parentNode.remove();
+            document.getElementById('totalMessages').innerText = (parseInt(document.getElementById('totalMessages').innerText)-1);
+
+            $.post('/deleteMessage',{feedbackId:event.target.getAttribute('feedbackId')});
+          }
+
+
+    </script>
+
+</body>
+</html>
+
+

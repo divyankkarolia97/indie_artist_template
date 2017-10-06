@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bolnabhai - Register</title>
+    {{>head}}
+    <script src="/JS/register.js"></script>
+
+</head>
+<body style="font-family: 'Oswald', sans-serif;">
+    {{>header}}
+    <div class="container col-lg-4 col-sm-10" style="position: relative;top: 130px;">
+
+    <form id="registrationForm" action="/register" method="post" enctype="multipart/form-data">
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Email &nbsp;&nbsp;&nbsp;</button>
+      </span>
+            <input autofocus type="email" id="email" tabindex="1" class="form-control" name="email">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Name &nbsp;&nbsp;&nbsp;</button>
+      </span>
+            <input type="text" tabindex="2" id="name" class="form-control" name="name">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary"  type="button">Username</button>
+      </span>
+            <input type="text" tabindex="3" id="username" class="form-control" name="username">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Password</button>
+      </span>
+            <input type="password" id="password" tabindex="4" class="form-control" name="password">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Password Confirmation</button>
+      </span>
+            <input type="password" tabindex="5" id="passwordConfirmation" class="form-control">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Profile Pic</button>
+      </span>
+            <input type="file" tabindex="6" class="form-control" id="avatar" name="avatar">
+        </div>
+
+        <br>
+
+
+        <input class="btn btn-block btn-info" tabindex="7" type="submit" value="Register">
+        <br>
+
+
+        <div id="alertDiv" style="visibility: hidden" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+
+            </button>
+
+            <b id="alert"></b>
+
+        </div>
+
+        <div id="tipDiv" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+
+            </button>
+
+            <b id="tip">No blankspace in username & password</b>
+
+        </div>
+
+
+    </form>
+
+    </div>
+
+
+
+
+</body>
+</html>
