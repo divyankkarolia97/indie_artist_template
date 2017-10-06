@@ -70,6 +70,7 @@ router.get('/:id',function(req,res) {
     db.then(function (data) {
         var username = req.params.id;
         data.collection('artist_data').findOne({username: username}).then(function (data) {
+            console.log(data);
             res.render('artistProfile', {data});
         })
     });

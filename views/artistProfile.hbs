@@ -7,5 +7,20 @@
 </head>
 <body style="font-family: 'Oswald', sans-serif;">
     {{> profileHead}}
+    <div class="jumbotron" style="padding-top: 135px;">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-6-md" style="margin-right:20px; ">
+                    <img class="img-fluid img-thumbnail" src="/userImages/{{data.profile_image}}" style="height: 150px">
+                </div>
+                <div class="col-6-md">
+                    hello,<h1 style="font-weight: bolder">{{data.name}}</h1> <h4>({{data.username}})</h4>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
