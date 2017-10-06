@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>bolnabhai AboutUs</title>
+    {{> head}}
+</head>
+<body style="font-family: 'Oswald', sans-serif;">
+{{#if logged}}
+    {{> profileHead}}
+{{else}}
+    {{>header}}
+{{/if}}
+<br><br><br>
+
+<div class="container col-lg-4 col-sm-10" style="position: relative;top: 130px;">
+    <h3 align="center">Add an event here</h3><br>
+    <form id="eventForm" action="/artist/addevent" method="post" enctype="multipart/form-data">
+
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Event Name &nbsp;&nbsp;&nbsp;</button>
+      </span>
+            <input type="text" tabindex="2" id="eventname" class="form-control" name="eventname">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary"  type="button">Description</button>
+      </span>
+            <textarea height="9"  tabindex="3" id="eventdescription" class="form-control" name="eventdescription"></textarea>
+        </div>
+
+        <br>
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Date </button>
+      </span>
+            <input type="date" tabindex="2" id="eventname" class="form-control" name="eventdate">
+        </div>
+
+        <br>
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Time &nbsp;&nbsp;&nbsp;</button>
+      </span>
+            <input type="time" tabindex="2" id="eventname" class="form-control" name="eventtime">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Venue &nbsp;&nbsp;&nbsp;</button>
+      </span>
+            <input type="text" tabindex="2" id="eventname" class="form-control" name="eventvenue">
+        </div>
+
+        <br>
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Price</button>
+      </span>
+            <input type="number" tabindex="2" id="eventname" class="form-control" name="eventprice">
+        </div>
+
+        <br>
+
+        <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Event Poster</button>
+      </span>
+            <input type="file" tabindex="6" class="form-control" id="avatar" name="avatar">
+        </div>
+
+        <br>
+
+
+        <input class="btn btn-block btn-info" tabindex="7" type="submit" value="Add Event">
+        <br>
+
+
+
+
+
+    </form>
+
+</div>
+</body>
+</html>

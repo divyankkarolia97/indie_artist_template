@@ -2,12 +2,28 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../database');
-
-//setting up passport
 const bp = require('body-parser');
 const cp = require('cookie-parser');
-const passport = require('../routes/localStrategy');
+const passport = require('./localStrategy');
 const session = require('express-session');
+
+
+
+
+//setting up multer
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './eventImages');
+    },
+    filename: function (req, file, cb) {
+        cb(null, req.user.username + '-' + Date.now() +'.jpg');
+    }
+})
+
+var upload = multer({ storage: storage }).single('avatar');
+
 
 //passport configuration
 
@@ -60,6 +76,47 @@ router.get('/success',function(req,res){
     console.log("Successfully logged in");
     res.redirect('/artist/'+req.user.username);
 });
+
+// router.post('/addevent',function(req,res){
+//     console.log(req.body);
+//     console.log("Event added");
+//     res.redirect('/artist/addevent');
+// })
+
+router.post('/addevent',function(req,res,next){
+    console.log(req.body);
+    upload(req,res,function(err){
+        if(err){
+            return ;
+        }
+        if(req.file == undefined){
+            req.file={};
+            req.file.filename = (Math.round(Math.random()*3)+1)+'.png';
+        }
+
+
+        db.then(function(data){
+            console.log(req.body.id);
+            console.log(req.body);
+
+            data.collection('events_data').insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,event_img:req.file.filename})
+            next();
+        });
+        res.redirect('/artist/addevent');
+
+
+    })
+
+
+});
+
+router.get('/addevent',function(req,res){
+    var logged = req.user ? true: false;
+    res.render('addevent',{logged});
+});
+router.get('/notadded',function(req,res){
+    res.send("Event was not added");
+})
 
 router.get('/:id',function(req,res) {
     var logged = req.user ? true: false;
