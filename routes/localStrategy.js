@@ -4,12 +4,10 @@ const LocalStrategy = require('passport-local');
 const db = require('../database');
 
 passport.serializeUser(function(user,done){
-    console.log("serializing");
     done(null,user.username);
 })
 
 passport.deserializeUser(function(username,done){
-    console.log("deserializing");
     db.then(function(data){
         data.collection('artist_data').find({username:username}).toArray(function(err,user){
             done(null,user[0]);
