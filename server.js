@@ -36,6 +36,7 @@ hbs.registerPartials(__dirname+'/views/partials')
 
 //path handlers
 app.use('/',express.static(process.env.PWD+'/static'))
+app.use('/userImages',express.static(process.env.PWD+'/userImages'))
 
 
 
@@ -70,8 +71,8 @@ app.get('/aboutus',function(req,res){
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000,(err)=>{
+app.listen(1234,(err)=>{
     if (!err) {
-        console.log("Server started on http://localhost:3000");
+        console.log("Server started on http://localhost:1234");
     }
 });

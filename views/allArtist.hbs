@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discover Artist</title>
+    {{> head}}
+</head>
+<body style="font-family: 'Oswald', sans-serif;">
+
+{{#if logged}}
+    {{> profileHead}}
+{{else}}
+    {{> header}}
+{{/if}}
+<div class="container" style="padding-top: 100px;" >
+{{#each data}}
+    <div class="jumbotron">
+        <a href="/artist:{{username}}">
+
+        <div class="row">
+            <div class="col-3"><img src="/userImages/{{profile_image}}" class="img-fluid"></div>
+            {{name}}
+
+        </div>
+        </a>
+    </div>
+{{/each}}
+</div>
+</body>
+</html>
