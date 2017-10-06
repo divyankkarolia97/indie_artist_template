@@ -62,21 +62,15 @@ router.get('/success',function(req,res){
 });
 
 router.get('/:id',function(req,res) {
-    var artistData;
+    if(req.user == null ){
+        res.redirect('/login');
+    }
+
     res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     db.then(function (data) {
         var username = req.params.id;
-        console.log(username)
-        console.log("Database")
-        // console.log(req.user.username)
-        var artistCollection = data.collection('artist_data');
-        artistCollection.findOne({username: username}).then(function (data) {
-            console.log(data);
-             artistData = data;
-        }).then(function(){
-            // console.log(userPosts.length)
-            // console.log(artistData)
-            res.render('artistProfile', {data: artistData});
+        data.collection('artist_data').findOne({username: username}).then(function (data) {
+            res.render('artistProfile', {data});
         })
     });
 });
