@@ -41,31 +41,55 @@ router.get('/all',(req,res)=>{
 })
 
 
-router.post('/artistdata',(req,res)=>{
+// router.post('/artistdata',(req,res)=>{
+//
+//     //sends the artist data
+//     console.log(req.body);
+//     db.then(function(data){
+//         data.collection('artist_data').find({username:req.body.username}).limit(1).toArray(function(err,data){
+//             if(data == 0){
+//                 res.send("false");
+//             }else{
+//                 res.send(data[0]);
+//             }
+//         });
+//
+//     })
+// })
+router.get('/success',function(req,res){
+    console.log("Successfully logged in");
+    res.redirect('/artist/'+req.user.username);
+});
 
-    //sends the artist data
-    console.log(req.body);
-    db.then(function(data){
-        data.collection('artist_data').find({username:req.body.username}).limit(1).toArray(function(err,data){
-            if(data == 0){
-                res.send("false");
-            }else{
-                res.send(data[0]);
-            }
-        });
-
-    })
-})
-
-router.post('/eventsData',(req,res)=>{
-    //sends the events data of a particular artist
-    db.then(function(data){
-        data.collection('events_data').find({username:req.body.username}).toArray(function(err,data){
-            res.send(data);
+router.get('/:id',function(req,res) {
+    var artistData;
+    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+    db.then(function (data) {
+        var username = req.params.id;
+        console.log(username)
+        console.log("Database")
+        // console.log(req.user.username)
+        var artistCollection = data.collection('artist_data');
+        artistCollection.findOne({username: username}).then(function (data) {
+            console.log(data);
+             artistData = data;
+        }).then(function(){
+            // console.log(userPosts.length)
+            // console.log(artistData)
+            res.render('artistProfile', {data: artistData});
         })
-    })
+    });
+});
 
-})
+// router.post('/eventsData',(req,res)=>{
+//     //sends the events data of a particular artist
+//     db.then(function(data){
+//         data.collection('events_data').find({username:req.body.username}).toArray(function(err,data){
+//             res.send(data);
+//         })
+//     })
+//
+// })
 
 
 module.exports = router;
