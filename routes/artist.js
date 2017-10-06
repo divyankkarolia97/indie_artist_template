@@ -62,16 +62,12 @@ router.get('/success',function(req,res){
 });
 
 router.get('/:id',function(req,res) {
-    if(req.user == null ){
-        res.redirect('/login');
-    }
-
+    var logged = req.user ? true: false;
     res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     db.then(function (data) {
         var username = req.params.id;
         data.collection('artist_data').findOne({username: username}).then(function (data) {
-            console.log(data);
-            res.render('artistProfile', {data});
+            res.render('artistProfile', {logged,data});
         })
     });
 });
