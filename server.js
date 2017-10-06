@@ -55,6 +55,8 @@ var register = require('./routes/register')
 app.use('/register',register);
 var forgotPassword = require('./routes/forgotPassword');
 app.use('/forgotPassword',forgotPassword);
+var events = require('./routes/events');
+app.use('/events',events);
 
 //about us
 app.post('/logout',function(req,res){
