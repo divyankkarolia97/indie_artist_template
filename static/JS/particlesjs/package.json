@@ -1,0 +1,63 @@
+{
+  "_from": "particlesjs",
+  "_id": "particlesjs@2.0.2",
+  "_inBundle": false,
+  "_integrity": "sha1-elsoad+QNKaMa5gqWTKPPe9IpJE=",
+  "_location": "/particlesjs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "particlesjs",
+    "name": "particlesjs",
+    "escapedName": "particlesjs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/particlesjs/-/particlesjs-2.0.2.tgz",
+  "_shasum": "7a5b2869df9034a68c6b982a59328f3def48a491",
+  "_spec": "particlesjs",
+  "_where": "/home/divyank/WebstormProjects/indie_artist_template",
+  "author": {
+    "name": "Marc Bruederlin",
+    "email": "hello@marcbruederlin.com"
+  },
+  "bugs": {
+    "url": "https://github.com/marcbruederlin/particles.js/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A lightweight, dependency-free and responsive javascript plugin for particle backgrounds.",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.10",
+    "jshint": "^2.9.3",
+    "jshint-stylish": "^2.2.1",
+    "yargs": "^6.0.0"
+  },
+  "homepage": "https://marcbruederlin.github.io/particles.js/",
+  "keywords": [
+    "animation",
+    "javascript",
+    "particles",
+    "background",
+    "responsive"
+  ],
+  "license": "MIT",
+  "main": "dist/particles.min.js",
+  "name": "particlesjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcbruederlin/particles.js.git"
+  },
+  "version": "2.0.2"
+}
