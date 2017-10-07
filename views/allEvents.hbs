@@ -16,7 +16,7 @@
   <form action="/events/filter" method="post">
     <div class="input-group">
   <span class="input-group-btn">
-    <button class="btn btn-secondary" style="margin-right:1rem;" type="button">Filter Events&nbsp;&nbsp;</button>
+    <button class="btn btn-secondary" style="margin:0 1rem 1rem 0;" type="button">Filter Events&nbsp;&nbsp;</button>
   </span>
         <div class="checkbox">
             <div class="container-fluid">
@@ -26,8 +26,8 @@
                   <label><input type="checkbox" tabindex="2" name="category" value="drama"> Drama<br></label>
                 </div>
         </div>
+        <input class="btn btn-block  btn-info" style="width:5rem;height:2.5rem;" tabindex="7" type="submit" value="Search">
     </div>
-    <input class="btn btn-block  btn-info" tabindex="7" type="submit" value="Search">
     <br>
   </form>
 {{#each data}}
