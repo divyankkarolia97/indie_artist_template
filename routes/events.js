@@ -41,4 +41,15 @@ router.get('/all',function(req,res){
 })
 
 
+//to filter all the events
+// router.post('/filter',function(req,res){
+//     var filteredEvents = [];
+//     console.log(req.body);
+//     db.then(function(data){
+//
+//         data.collection(req.body.)
+//     })
+//
+// })
+
 module.exports = router;
