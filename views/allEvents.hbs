@@ -13,6 +13,22 @@
     {{> header}}
 {{/if}}
 <div class="container" style="padding-top: 100px;" >
+  <form action="/events/filter" method="post">
+    <div class="input-group">
+  <span class="input-group-btn">
+    <button class="btn btn-secondary" style="margin-right:1rem;" type="button">Search Event&nbsp;&nbsp;&nbsp;</button>
+  </span>
+        <div class="checkbox">
+          <label><input type="checkbox"  tabindex="2" name="category" value="music"> Music<br></label>
+          <label><input type="checkbox" tabindex="2" name="category" value="stand-up"> Stand-up<br></label>
+          <label><input type="checkbox" tabindex="2" name="category" value="dance"> Dance<br></label>
+          <label><input type="checkbox" tabindex="2" name="category" value="drama"> Drama<br></label>
+        </div>
+    </div>
+    <br>
+    <input class="btn btn-block btn-info" tabindex="7" type="submit" value="Search">
+    <br>
+  </form>
 {{#each data}}
       <div class="jumbotron" style="background:transparent !important">
           <div class="row">
@@ -24,10 +40,7 @@
                  <div class="row">{{desc}}</div>
                  <div class="row" style="color:grey;">{{venue}}</div>
                  <div class="row" style="margin-top:1rem;">
-                   {{#each categories}}
-                    <button type="button" class="btn btn-default"><span class="badge" style="color:grey;">{{this}}</span></button>
-                    &nbsp;&nbsp;&nbsp;
-                   {{/each}}
+                  <button type="button" class="btn btn-default"><span class="badge" style="color:grey;">{{category}}</span></button>
                  </div>
                  <div class="row" style="position:absolute; bottom:0">
                    <div class="col-9">
