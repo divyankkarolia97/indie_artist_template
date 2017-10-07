@@ -16,17 +16,21 @@
   <form action="/events/filter" method="post">
     <div class="input-group">
   <span class="input-group-btn">
-    <button class="btn btn-secondary" style="margin-right:1rem;" type="button">Search Event&nbsp;&nbsp;&nbsp;</button>
+    <button class="btn btn-secondary" style="margin-right:1rem;" type="button">Filter Events&nbsp;&nbsp;</button>
   </span>
         <div class="checkbox">
-          <label><input type="checkbox"  tabindex="2" name="category" value="music"> Music<br></label>
-          <label><input type="checkbox" tabindex="2" name="category" value="stand-up"> Stand-up<br></label>
-          <label><input type="checkbox" tabindex="2" name="category" value="dance"> Dance<br></label>
-          <label><input type="checkbox" tabindex="2" name="category" value="drama"> Drama<br></label>
+            <div class="container-fluid">
+                  <label><input type="checkbox"  tabindex="2" name="category" value="music"> Music<br></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label><input type="checkbox" tabindex="2" name="category" value="stand-up"> Stand-up<br></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label><input type="checkbox" tabindex="2" name="category" value="dance"> Dance<br></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label><input type="checkbox" tabindex="2" name="category" value="drama"> Drama<br></label>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
         </div>
     </div>
-    <br>
-    <input class="btn btn-block btn-info" tabindex="7" type="submit" value="Search">
+    <input class="btn  btn-info" tabindex="7" type="submit" value="Search">
     <br>
   </form>
 {{#each data}}

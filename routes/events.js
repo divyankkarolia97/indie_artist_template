@@ -42,14 +42,34 @@ router.get('/all',function(req,res){
 
 
 //to filter all the events
-// router.post('/filter',function(req,res){
-//     var filteredEvents = [];
-//     console.log(req.body);
-//     db.then(function(data){
-//
-//         data.collection(req.body.)
-//     })
-//
-// })
+router.post('/filter',function(req,res){
+    var logged = (req.user)? true: false;
+    var filteredEvents = [];
+    if(typeof req.body.category == "string"){
+
+        db.then(function(data){
+            data.collection(req.body.category[index]).find().toArray(function(err,data){
+                for(index in data){
+                    filteredEvents.push(data[index]);
+                }
+            })
+        })
+
+    }
+    else{
+        for(var index in req.body.category){
+            console.log(req.body.category[index]);
+            db.then(function(data){
+                data.collection(req.body.category[index]).find().toArray(function(err,data){
+                    for(index in data){
+                        filteredEvents.push(data[index]);
+                    }
+                })
+            })
+        }
+    }
+    console.log(filteredEvents);
+    res.render('allEvents',{logged,filteredEvents});
+})
 
 module.exports = router;
