@@ -17,6 +17,25 @@
         <div class="row">
             <div class="col-7">
                 <img class="img-fluid img-thumbnail"  src="/eventImages/{{eventData.event_img}}" style="height: 450px">
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                <div class="col-md-2">
+                    <b>{{eventData.likes}}</b>
+                <form action="/events/like" method="post">
+                    <input type="hidden" name="eventname" value={{eventData.name}} />
+                    <input  type='submit' class='btn btn-success' value='Like'>
+                </form>
+                </div>
+                <div class="'col-md-2">
+                    <b>{{eventData.dislikes}}</b>
+                <form action="/events/dislike" method="post">
+                    <input type="hidden" name="eventname" value={{eventData.name}} />
+                    <input  type='submit' class='btn btn-danger' value='Dislike'>
+                </form>
+                </div>
+                </div>
             </div>
             <div class="col-5">
                 <h1>{{eventData.name}}</h1>
