@@ -25,14 +25,14 @@
                     <b>{{eventData.likes}}</b>
                 <form action="/events/like" method="post">
                     <input type="hidden" name="eventname" value={{eventData.name}} />
-                    <input  type='submit' class='btn btn-success' value='Like'>
+                    <input  type='submit' class='btn btn-success' value='Going'>
                 </form>
                 </div>
                 <div class="'col-md-2">
                     <b>{{eventData.dislikes}}</b>
                 <form action="/events/dislike" method="post">
                     <input type="hidden" name="eventname" value={{eventData.name}} />
-                    <input  type='submit' class='btn btn-danger' value='Dislike'>
+                    <input  type='submit' class='btn btn-danger' value='Not-going'>
                 </form>
                 </div>
                 </div>

@@ -34,6 +34,7 @@ router.get('/all',function(req,res){
 
     db.then(function(data){
         data.collection('events_data').find({}).toArray(function(err,data){
+
             res.render('allEvents',{logged,data});
         })
     })
