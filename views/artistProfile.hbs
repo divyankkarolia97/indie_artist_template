@@ -17,7 +17,7 @@
 
             <div class="row">
                 <div class="col-6-md" style="margin-right:20px; ">
-                    <img class="img-fluid img-thumbnail" src="/userImages/{{data.profile_image}}" style="height: 150px">
+                    <img class="img-fluid img-thumbnail" src="/userImages/{{data.profile_image}}" style="height: 250px">
                 </div>
                 <div class="col-6-md">
                   {{#if logged}}
@@ -25,6 +25,7 @@
                     {{else}}
                   {{/if}}
                     <h1 style="font-weight: bolder">{{data.name}}</h1> <h4>({{data.username}})</h4>
+                    <h2>{{data.bio}}</h2>
 
                 </div>
             </div>
@@ -32,13 +33,31 @@
         </div>
     </div>
     <div>
-        Here are the artist events
         <br>
-        {{#each artistevents as |event|}}
-            <a href="/events/{{event.name}}">{{event.name}},{{event.desc}}</a>
-            <img class="img-fluid img-thumbnail" src="/eventImages/{{event.event_img}}" style="height: 150px">
-            <br>
+
+        <div class="container">
+            <h1>EVENTS: </h1>
+            {{#each artistevents as |event|}}
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-5">
+                <a href="/events/{{event.name}}" style="text-decoration : none">
+                        <img class="img-fluid img-thumbnail" src="/eventImages/{{event.event_img}}" style="height: 250px">
+                        </div>
+                        <div class="col-7">
+                        <h1>{{event.name}}</h1>
+                        <h3>{{event.desc}}</h3>
+                        </div>
+
+                </a>
+                    </div>
+                <br>
+                </div>
+
+            </div>
         {{/each}}
+        </div>
     </div>
     <!--add the events data over here-->
 </body>
