@@ -63,7 +63,7 @@ router.post('/',function(req,res,next){
             console.log(req.file);
             console.log(req.body);
 
-            data.collection('artist_data').insertOne({username:req.body.username,email:req.body.email,name:req.body.name,password:req.body.password,profile_image:req.file.filename})
+            data.collection('artist_data').insertOne({username:req.body.username,email:req.body.email,name:req.body.name,bio:req.body.bio,password:req.body.password,profile_image:req.file.filename})
             next();
         })
 
