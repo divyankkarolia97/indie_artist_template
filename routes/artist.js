@@ -100,10 +100,22 @@ router.get('/notadded',function(req,res){
 router.get('/:id',function(req,res) {
     var logged = req.user ? true: false;
     res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-    db.then(function (data) {
+    db.then(function (maindata) {
         var username = req.params.id;
-        data.collection('artist_data').findOne({username: username}).then(function (data) {
-            res.render('artistProfile', {logged,data});
+        var artistevents;
+        maindata.collection('artist_data').findOne({username: username}).then(function (data) {
+            var eventscollection=maindata.collection('events_data');
+            eventscollection.find({}).toArray().then(function (eventsdata) {
+                 artistevents=eventsdata.filter(function(singleevent){
+                    if(singleevent.by==username){
+                        return true;
+                    }
+                    return false;
+                })
+            }).then(function(){
+                console.log(artistevents)
+                res.render('artistProfile', {logged,data,artistevents});
+            })
         })
     });
 });
