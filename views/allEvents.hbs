@@ -17,7 +17,6 @@
     <div class="input-group">
   <span class="input-group-btn">
     <button class="btn btn-secondary" style="margin:0 1rem 1rem 0;" type="button">Filter Events&nbsp;&nbsp;</button>
-
   </span>
         <div class="checkbox">
             <div class="container-fluid">
@@ -33,12 +32,12 @@
   </form>
 {{#each data}}
     <a href="/events/{{name}}" style="text-decoration : none">
-      <div class="jumbotron" style="background:transparent !important">
+      <div class="jumbotron" style="height:380px;">
           <div class="row">
 
-              <div class="col-3"><img src="/eventImages/{{event_img}}" alt="img1" class="img-fluid"></div>
+              <div class="col-5"><img src="/eventImages/{{event_img}}" alt="img1" class="img-fluid"></div>
 
-              <div class="col-9">
+              <div class="col-7">
                  <div class="row" style="font-size:1.4em;">{{name}}</div>
                  <div class="row">{{desc}}</div>
                  <div class="row" style="color:grey;">{{venue}}</div>
