@@ -32,7 +32,8 @@
       <span class="input-group-btn">
         <button class="btn btn-secondary"  type="button">Description</button>
       </span>
-            <textarea height="9"  tabindex="3" id="eventdescription" class="form-control" name="eventdescription"></textarea>
+
+            <input type="text" tabindex="2" id="eventdescription" class="form-control" name="eventdescription">
         </div>
 
         <br>
@@ -72,9 +73,20 @@
 
         <div class="input-group">
       <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Event Category</button>
+      </span>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="category" value="music" > Music &nbsp;
+            <input type="radio" name="category" value="standup"> Stand-up &nbsp;
+            <input type="radio" name="category" value="dance"> Dance &nbsp;
+            <input type="radio" name="category" value="drama"> Drama
+        </div>
+
+        <br>
+        <div class="input-group">
+      <span class="input-group-btn">
         <button class="btn btn-secondary" type="button">Event Poster</button>
       </span>
-            <input type="file" tabindex="6" class="form-control" id="avatar" name="avatar">
+            <input type="file" tabindex="2" id="avatar" class="form-control" name="avatar">
         </div>
 
         <br>

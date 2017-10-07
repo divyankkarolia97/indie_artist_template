@@ -55,32 +55,10 @@ router.get('/all',(req,res)=>{
 
 })
 
-
-// router.post('/artistdata',(req,res)=>{
-//
-//     //sends the artist data
-//     console.log(req.body);
-//     db.then(function(data){
-//         data.collection('artist_data').find({username:req.body.username}).limit(1).toArray(function(err,data){
-//             if(data == 0){
-//                 res.send("false");
-//             }else{
-//                 res.send(data[0]);
-//             }
-//         });
-//
-//     })
-// })
 router.get('/success',function(req,res){
     console.log("Successfully logged in");
     res.redirect('/artist/'+req.user.username);
 });
-
-// router.post('/addevent',function(req,res){
-//     console.log(req.body);
-//     console.log("Event added");
-//     res.redirect('/artist/addevent');
-// })
 
 router.post('/addevent',function(req,res,next){
     console.log(req.body);
@@ -97,11 +75,11 @@ router.post('/addevent',function(req,res,next){
         db.then(function(data){
             console.log(req.body.id);
             console.log(req.body);
+            data.collection('events_data').insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,category:req.body.category,event_img:req.file.filename})
+            data.collection(req.body.category).insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,category:req.body.category,event_img:req.file.filename})
+            res.redirect('/events/'+req.body.eventname);
 
-            data.collection('events_data').insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,event_img:req.file.filename})
-            data.collection(req.body.category).insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.price,event_img:req.file.filename})
-            res.redirect('/artist/success');
-
+            next();
         });
 
 
@@ -129,16 +107,5 @@ router.get('/:id',function(req,res) {
         })
     });
 });
-
-// router.post('/eventsData',(req,res)=>{
-//     //sends the events data of a particular artist
-//     db.then(function(data){
-//         data.collection('events_data').find({username:req.body.username}).toArray(function(err,data){
-//             res.send(data);
-//         })
-//     })
-//
-// })
-
 
 module.exports = router;

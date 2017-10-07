@@ -40,6 +40,18 @@ router.get('/all',function(req,res){
 
 })
 
+router.get('/:id',function(req,res) {
+    var eventname = req.params.id;
+    console.log(eventname);
+    db.then(function (data) {
+        var eventscollection = data.collection('events_data');
+        eventscollection.findOne({name: eventname}).then(function (data) {
+            res.render('eventpage',{data:data});
+        })
+
+    })
+});
+
 
 //to filter all the events
 router.post('/filter',function(req,res){
@@ -48,28 +60,44 @@ router.post('/filter',function(req,res){
     if(typeof req.body.category == "string"){
 
         db.then(function(data){
-            data.collection(req.body.category[index]).find().toArray(function(err,data){
+            data.collection(req.body.category).find().toArray(function(err,data){
                 for(index in data){
+                    console.log(data[index]);
                     filteredEvents.push(data[index]);
                 }
+
+                var data = filteredEvents;
+                res.render('allEvents',{logged,data});
             })
         })
 
+
     }
     else{
-        for(var index in req.body.category){
-            console.log(req.body.category[index]);
-            db.then(function(data){
-                data.collection(req.body.category[index]).find().toArray(function(err,data){
-                    for(index in data){
-                        filteredEvents.push(data[index]);
-                    }
-                })
-            })
-        }
+
+        db.then(function(mdata){
+                for(var index in req.body.category){
+                    mdata.collection(req.body.category[index]).find().toArray(function(err,sdata){
+
+                        if(sdata){
+                            console.log(sdata);
+                            for(i in sdata){
+                                filteredEvents.push(sdata[i]);
+                            }
+                        }
+
+
+
+                    })
+                    var data = filteredEvents;
+                    res.render('allEvents',{logged,data});
+                }
+
+        })
     }
-    console.log(filteredEvents);
-    res.render('allEvents',{logged,filteredEvents});
+
+
+
 })
 
 module.exports = router;
