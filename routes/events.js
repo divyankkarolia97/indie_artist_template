@@ -40,11 +40,17 @@ router.get('/all',function(req,res){
 
 })
 
-router.get('/:id',function(req,res){
-    var eventid=req.params.id;
-    console.log(eventid);
-    res.send(eventid)
-})
+router.get('/:id',function(req,res) {
+    var eventname = req.params.id;
+    console.log(eventname);
+    db.then(function (data) {
+        var eventscollection = data.collection('events_data');
+        eventscollection.findOne({name: eventname}).then(function (data) {
+            res.render('eventpage',{data:data});
+        })
+
+    })
+});
 
 
 module.exports = router;
