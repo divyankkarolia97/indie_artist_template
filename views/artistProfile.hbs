@@ -20,7 +20,11 @@
                     <img class="img-fluid img-thumbnail" src="/userImages/{{data.profile_image}}" style="height: 150px">
                 </div>
                 <div class="col-6-md">
-                    hello,<h1 style="font-weight: bolder">{{data.name}}</h1> <h4>({{data.username}})</h4>
+                  {{#if logged}}
+                    hello,
+                    {{else}}
+                  {{/if}}
+                    <h1 style="font-weight: bolder">{{data.name}}</h1> <h4>({{data.username}})</h4>
 
                 </div>
             </div>
