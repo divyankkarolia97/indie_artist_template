@@ -75,7 +75,7 @@ router.post('/addevent',function(req,res,next){
         db.then(function(data){
             console.log(req.body.id);
             console.log(req.body);
-            data.collection('events_data').insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,category:req.body.category,event_img:req.file.filename})
+            data.collection('events_data').insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,category:req.body.category,likes:0,dislikes:0,event_img:req.file.filename})
             data.collection(req.body.category).insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,category:req.body.category,event_img:req.file.filename})
             res.redirect('/events/'+req.body.eventname);
 
