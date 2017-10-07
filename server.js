@@ -44,7 +44,14 @@ app.use('/eventImages',express.static(process.env.PWD+'/eventImages'))
 //routing
 app.get('/',function(req,res){
     var logged = (req.user)? true: false;
-    res.render('homepage',{logged});
+    db.then(function(data){
+        data.collection('events_data').find({},{sort:{likes:-1}}).limit(5).toArray(function(err,data){
+            console.log(data);
+            res.render('homepage',{logged,data});
+        })
+
+    })
+
 })
 
 

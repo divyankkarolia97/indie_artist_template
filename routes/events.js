@@ -50,7 +50,10 @@ router.post('/like',function(req,res){
                 console.log(err)
             }
         })
-        res.redirect('/events/'+req.body.eventname);
+        console.log(req.body)
+        var arr = req.body.eventname.split(' ');
+        console.log(arr);
+        res.redirect('/events/'+arr.join('%20'));
 
     });
 
