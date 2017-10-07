@@ -98,7 +98,7 @@ router.post('/addevent',function(req,res,next){
             console.log(req.body.id);
             console.log(req.body);
 
-            data.collection('events_data').insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,event_img:req.file.filename})
+            data.collection('events_data').insertOne({name:req.body.eventname,by:req.user.username,desc:req.body.eventdescription,time:req.body.eventtime,venue:req.body.eventvenue,date:req.body.eventdate,price:req.body.eventprice,cateogory:req.body.category,event_img:req.file.filename})
             next();
         });
         res.redirect('/artist/addevent');

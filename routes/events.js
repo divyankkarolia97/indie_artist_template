@@ -40,5 +40,11 @@ router.get('/all',function(req,res){
 
 })
 
+router.get('/:id',function(req,res){
+    var eventid=req.params.id;
+    console.log(eventid);
+    res.send(eventid)
+})
+
 
 module.exports = router;
