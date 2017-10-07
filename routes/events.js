@@ -41,12 +41,13 @@ router.get('/all',function(req,res){
 })
 
 router.get('/:id',function(req,res) {
+    var logged = (req.user)? true: false;
     var eventname = req.params.id;
-    console.log(eventname);
     db.then(function (data) {
-        var eventscollection = data.collection('events_data');
-        eventscollection.findOne({name: eventname}).then(function (data) {
-            res.render('eventpage',{data:data});
+
+        data.collection('events_data').find({name: eventname}).toArray(function (err,data){
+            var eventData = data[0];
+            res.render('eventpage',{logged,eventData});
         })
 
     })

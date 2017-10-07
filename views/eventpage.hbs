@@ -2,13 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <title>INDie ARTIST</title>
+    {{> head}}
 </head>
-<body>
-Event page
-{{data.name}}
-{{data.by}}
-{{data.venue}}
-{{data.price}}
+<body style="font-family: 'Oswald', sans-serif;">
+{{#if logged}}
+    {{> profileHead}}
+{{else}}
+    {{>header}}
+{{/if}}
+<div class="jumbotron" style="padding-top: 135px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <img class="img-fluid img-thumbnail"  src="/eventImages/{{eventData.event_img}}" style="height: 450px">
+            </div>
+            <div class="col-5">
+                <h1>{{eventData.name}}</h1>
+                <br>
+                <h3>{{eventData.desc}}</h3>
+                <br>
+                artist: <code><a href="/artist/{{eventData.by}}">{{eventData.by}}</a></code>
+                <br><br>
+                time: <h3>{{eventData.time}}</h3>
+                date: <h3>{{eventData.date}}</h3>
+                <h2><span class="badge badge-secondary">{{eventData.category}}</span></h2>
+                <button type="button" class="btn btn-success btn-lg"><span>BUY NOW </span><i class="fa fa-inr" aria-hidden="true"></i> {{eventData.price}}</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--add the events data over here-->
 </body>
+
 </html>
