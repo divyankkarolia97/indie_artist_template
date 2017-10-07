@@ -40,6 +40,36 @@ router.get('/all',function(req,res){
 
 })
 
+router.post('/like',function(req,res){
+    db.then(function(data){
+        var eventscollection=data.collection('events_data');
+
+        eventscollection.update({"name":req.body.eventname},{$inc:{likes:1}},function(err,res){
+            if(err){
+                console.log(err)
+            }
+        })
+        res.redirect('/events/'+req.body.eventname);
+
+    });
+
+});
+
+router.post('/dislike',function(req,res){
+    db.then(function(data){
+        var eventscollection=data.collection('events_data');
+
+        eventscollection.update({"name":req.body.eventname},{$inc:{dislikes:1}},function(err,res){
+            if(err){
+                console.log(err)
+            }
+        })
+        res.redirect('/events/'+req.body.eventname);
+
+    });
+
+});
+
 router.get('/:id',function(req,res) {
     var logged = (req.user)? true: false;
     var eventname = req.params.id;
