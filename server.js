@@ -7,7 +7,7 @@ const bp = require('body-parser');
 const cp = require('cookie-parser');
 const passport = require('./routes/localStrategy');
 const session = require('express-session');
-
+const CONFIG = require('./config');
 const db = require('./database')
 //passport configuration
 
@@ -81,7 +81,7 @@ app.get('/aboutus',function(req,res){
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(1234,(err)=>{
+app.listen(CONFIG.SERVER_PORT,(err)=>{
     if (!err) {
         console.log("Server started on http://localhost:1234");
     }
