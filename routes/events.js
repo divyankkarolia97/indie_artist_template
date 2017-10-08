@@ -87,6 +87,10 @@ router.get('/:id',function(req,res) {
     })
 });
 
+router.post('/:id/buy',function(req,res) {
+    res.render("buyticket")
+});
+
 
 //to filter all the events
 router.post('/filter',function(req,res){
