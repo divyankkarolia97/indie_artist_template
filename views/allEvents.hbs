@@ -49,8 +49,9 @@
                   </form>
                       </div>
                       <div class="col-md-4">
-                          <button style="float:right;" class="btn btn-success"><span style="font-size:.8em;">BUY NOW</span> <i class="fa fa-inr" aria-hidden="true"></i>{{price}}</button>
-
+                          <form action="/events/{{name}}/buy" method="post">
+                              <button type='submit' class='btn btn-info' name='category' value="" >Buy tickets</button> <i class="fa fa-inr" aria-hidden="true"></i>{{price}}
+                          </form>
                       </div>
                   </div>
 
