@@ -1,0 +1,55 @@
+<script src="/JS/particlesjs/dist/particles.js"></script>
+<script>
+    window.onload = function() {
+
+        Particles.init({
+            // normal options
+            selector: '.background',
+            maxParticles: 500,
+
+            // options for breakpoints
+            responsive: [
+                {
+                    breakpoint: 768,
+                    options: {
+                        maxParticles: 200,
+                        color: '#48F2E3',
+                        connectParticles: true
+                    }
+                }, {
+                    breakpoint: 425,
+                    options: {
+
+                        maxParticles: 500,
+                        color: '#48F2E3',
+                        connectParticles: true
+                    }
+                }, {
+                    breakpoint: 5000,
+                    options: {
+                        color: '#14f2ef',
+                        maxParticles: 600,
+                        connectParticles: true// disables particles.js
+                    }
+                }
+            ]
+        });
+    }
+</script>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .background {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    .carousel-inner > .item > img {
+        margin: 0 auto;
+    }
+</style>
