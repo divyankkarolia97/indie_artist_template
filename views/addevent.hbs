@@ -7,7 +7,7 @@
     {{> head}}
     {{> particle}}
     <script src="/JS/venue.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
 </head>
 <body style="font-family: 'Oswald', sans-serif;">
 <canvas class="background"></canvas>
@@ -110,12 +110,81 @@
         <div class="col-6"  >
 
             <br><br><br>
-        <div id="categoryData">
+        <!--<div id="categoryData">-->
             <b>STATS WILL BE DISPLAYED HERE</b>
-        </div>
+        <!--</div>-->
+            <canvas id="myChart" width="400" height="400"></canvas>
     </div>
     </div>
 </div>
-<
+
+<script>
+    window.onload=function() {
+        $('#music').click(showVenue);
+        $('#standup').click(showVenue);
+        $('#drama').click(showVenue);
+        $('#dance').click(showVenue);
+
+        function showVenue(event) {
+            console.log(event.target.getAttribute('id'));
+            $.post('/artist/locationData', {category: event.target.getAttribute('id')}).done(function (data) {
+                console.log(data.location);
+                var label = [];
+                var totalPeople = 0;
+                var dataSet =[]
+                for (var index in data.location) {
+                    console.log(index);
+                    totalPeople += data.location[index];
+                    label.push(index);
+                    dataSet.push(data.location[index]);
+                }
+                console.log('im here')
+                console.log(totalPeople);
+                //      code to represent the data;
+
+                var ctx = document.getElementById("myChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: label,
+                        datasets: [{
+                            label: '# of Votes',
+                            data: dataSet,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            })
+        }
+    }
+
+</script>
+
+
 </body>
 </html>
