@@ -94,11 +94,12 @@
     </div>
       {{#each data}}
     <div class="carousel-item " >
-      <a href="/events/{{name}}"><img class="d-block img-fluid" style="width: auto;height: auto;" src="/eventImages/{{event_img}}"></a>
+      <a href="/events/{{name}}"><img class="d-block img-fluid" style="width: auto;height: auto;" src="/eventImages/{{event_img}}">
       <div class="carousel-caption d-none d-md-block" style="top:20px">
           <h3>{{name}}</h3>
           <p>{{desc}}</p>
         </div>
+      </a>
     </div>
       {{/each}}
 
@@ -111,9 +112,11 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
+</div>
 
 </div>
+    <div class="jumbotron">
+    </div>
 
 
 </body>

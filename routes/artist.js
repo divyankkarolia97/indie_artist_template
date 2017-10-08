@@ -7,7 +7,7 @@ const cp = require('cookie-parser');
 const passport = require('./localStrategy');
 const session = require('express-session');
 
-
+const dataset = require('../categorydataset.json');
 
 
 //setting up multer
@@ -62,6 +62,7 @@ router.get('/success',function(req,res){
 
 router.post('/addevent',function(req,res,next){
     console.log(req.body);
+    console.log(dataset);
     upload(req,res,function(err){
         if(err){
             return ;
@@ -82,12 +83,17 @@ router.post('/addevent',function(req,res,next){
             next();
         });
 
-
-
     })
-
-
 });
+
+router.post('/locationData',function(req,res){
+    for(object of dataset){
+        if(object.category == req.body.category){
+            res.send(object);
+            break;
+        }
+    };
+})
 
 router.get('/addevent',function(req,res){
     var logged = req.user ? true: false;

@@ -13,7 +13,7 @@
     {{> header}}
 {{/if}}
 <div class="container" style="padding-top: 100px;" >
-    <h2>Search by category-</h2>
+        <br><br><br>
   <form action="/events/filter" method="post">
     <div class="input-group">
   <span class="input-group-btn">
@@ -27,7 +27,7 @@
                   <label><input type="checkbox" tabindex="2" name="category" value="drama"> Drama<br></label>
                 </div>
         </div>
-        <input class="btn btn-block  btn-info" style="width:5rem;height:2.5rem;" tabindex="7" type="submit" value="Search">
+        <input class="btn btn-block  btn-info"  style="width:5rem;height:2.5rem;" tabindex="7" type="submit" value="Search">
     </div>
     <br>
   </form>
@@ -37,12 +37,12 @@
       <div class="jumbotron" style="height:380px;">
           <div class="row">
 
-              <div class="col-md-4">
+              <div class="col-md-5">
                   <a href="/events/{{name}}" style="text-decoration : none"><img src="/eventImages/{{event_img}}" alt="img1" height="240" ></a>
                   <br><br>
                   <div class="row">
 
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                   <form action="/events/filter" method="post">
                       <!--<input type="hidden" name="category" value={{category}} />-->
                       <input  type='submit' class='btn btn-info' name='category' value={{category}} />
@@ -71,7 +71,7 @@
                    <div class="col-9">
                      <div class="row">{{date}}</div>
                      <div class="row">{{time}}</div>
-                       <div class="row">{{likes}}going</div>
+                       <div class="row"> <span>{{likes}}</span>&nbsp;&nbsp;&nbsp;  going</div>
                    </div>
 
                  </div>

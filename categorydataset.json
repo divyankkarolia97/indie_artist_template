@@ -1,0 +1,52 @@
+[
+  {
+    "category":"dance",
+    "location":{
+      "Delhi":58,
+      "Mumbai":75,
+      "Kolkata":180,
+      "Chennai":230,
+      "Noida":65,
+      "Gurugram":99
+
+    }
+  },
+  {
+    "category":"drama",
+    "location":{
+      "Delhi":77,
+      "Mumbai":157,
+      "Kolkata":232,
+      "Chennai":55,
+      "Noida":42,
+      "Gurugram":23
+
+    }
+  },
+  {
+    "category":"standup",
+    "location":{
+      "Delhi":241,
+      "Mumbai":195,
+      "Kolkata":88,
+      "Chennai":120,
+      "Noida":74,
+      "Gurugram":114
+
+    }
+  },
+  {
+    "category":"music",
+    "location":{
+      "Delhi":88,
+      "Mumbai":128,
+      "Kolkata":96,
+      "Chennai":23,
+      "Noida":75,
+      "Gurugram":180
+
+    }
+  }
+
+
+]

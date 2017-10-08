@@ -5,6 +5,8 @@
 
     <title>indieArtist AboutUs</title>
     {{> head}}
+    <script src="/JS/venue.js"></script>
+
 </head>
 <body style="font-family: 'Oswald', sans-serif;">
 {{#if logged}}
@@ -15,6 +17,7 @@
 <br><br><br>
 
 <div class="container col-lg-4 col-sm-10" style="position: relative;top: 130px;">
+
     <h3 align="center">Add an event here</h3><br>
     <form id="eventForm" action="/artist/addevent" method="post" enctype="multipart/form-data">
 
@@ -39,6 +42,17 @@
         <br>
         <div class="input-group">
       <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Event Category</button>
+      </span>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="category" value="music"  id="music" > Music &nbsp;
+            <input type="radio" name="category" value="standup" id="standup" > Stand-up &nbsp;
+            <input type="radio" name="category" value="dance" id="dance" > Dance &nbsp;
+            <input type="radio" name="category" value="drama" id="drama" > Drama
+        </div>
+
+        <br>
+        <div class="input-group">
+      <span class="input-group-btn">
         <button class="btn btn-secondary" type="button">Date </button>
       </span>
             <input type="date" tabindex="2" id="eventname" class="form-control" name="eventdate">
@@ -51,9 +65,7 @@
       </span>
             <input type="time" tabindex="2" id="eventname" class="form-control" name="eventtime">
         </div>
-
         <br>
-
         <div class="input-group">
       <span class="input-group-btn">
         <button class="btn btn-secondary" type="button">Venue &nbsp;&nbsp;&nbsp;</button>
@@ -71,17 +83,7 @@
 
         <br>
 
-        <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Event Category</button>
-      </span>&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="category" value="music" > Music &nbsp;
-            <input type="radio" name="category" value="standup"> Stand-up &nbsp;
-            <input type="radio" name="category" value="dance"> Dance &nbsp;
-            <input type="radio" name="category" value="drama"> Drama
-        </div>
 
-        <br>
         <div class="input-group">
       <span class="input-group-btn">
         <button class="btn btn-secondary" type="button">Event Poster</button>
@@ -100,7 +102,11 @@
 
 
     </form>
+    <div id="categoryData">
+
+    </div>
 
 </div>
+<
 </body>
 </html>
