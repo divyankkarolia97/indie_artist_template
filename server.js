@@ -7,7 +7,7 @@ const bp = require('body-parser');
 const cp = require('cookie-parser');
 const passport = require('./routes/localStrategy');
 const session = require('express-session');
-
+const CONFIG = require('./config');
 const db = require('./database')
 //passport configuration
 
