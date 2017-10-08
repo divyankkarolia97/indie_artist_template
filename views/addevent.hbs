@@ -5,10 +5,13 @@
 
     <title>indieArtist AboutUs</title>
     {{> head}}
+    {{> particle}}
     <script src="/JS/venue.js"></script>
 
 </head>
 <body style="font-family: 'Oswald', sans-serif;">
+<canvas class="background"></canvas>
+
 {{#if logged}}
     {{> profileHead}}
 {{else}}

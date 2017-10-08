@@ -5,8 +5,11 @@
 
     <title>INDie ARTIST</title>
     {{> head}}
+    {{>particle}}
 </head>
 <body style="font-family: 'Oswald', sans-serif;">
+<canvas class="background"></canvas>
+
 {{#if logged}}
     {{> profileHead}}
 {{else}}
